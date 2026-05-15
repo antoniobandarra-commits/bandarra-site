@@ -1,0 +1,1476 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bandarra Entertainment — DJ, Animador & Produtor de Eventos Premium</title>
+  <meta name="description" content="Bandarra Entertainment cria experiências memoráveis em casamentos, eventos corporativos, batizados e festas privadas. Curadoria musical, animação humana e tecnologia inteligente. Covilhã, Portugal." />
+  <meta name="keywords" content="DJ Covilhã, DJ casamentos, DJ corporativo, animação eventos Portugal, DJ Bandarra, eventos premium" />
+  <meta name="author" content="Bandarra Entertainment" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Bandarra Entertainment — Eventos Premium" />
+  <meta property="og:description" content="Experiência humana, tecnologia inteligente e pista cheia até ao fim." />
+  <meta property="og:image" content="images/banner.jpg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_PT" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="icon" type="image/png" href="images/logo-portrait.png" />
+
+  <style>
+    /* ============================================
+       DESIGN TOKENS
+       ============================================ */
+    :root {
+      --bg-cream: #F7F3EC;
+      --bg-paper: #FCFAF5;
+      --bg-deep: #14110F;
+      --ink: #1A1815;
+      --ink-soft: #4A453E;
+      --ink-mute: #8B8275;
+      --line: #D9D2C5;
+      --champagne: #B8956A;
+      --champagne-deep: #8C6B47;
+      --teal: #1B4D4A;
+      --teal-bright: #2A6E6A;
+
+      --serif: 'Fraunces', 'Times New Roman', serif;
+      --sans: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+
+      --container: 1320px;
+      --container-narrow: 980px;
+    }
+
+    /* ============================================
+       RESET & BASE
+       ============================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    body {
+      font-family: var(--sans);
+      font-size: 17px;
+      line-height: 1.65;
+      color: var(--ink);
+      background: var(--bg-cream);
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; text-decoration: none; transition: opacity 0.3s ease, color 0.3s ease; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+    /* ============================================
+       TYPOGRAPHY
+       ============================================ */
+    h1, h2, h3, h4 {
+      font-family: var(--serif);
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+    }
+    .eyebrow {
+      font-family: var(--sans);
+      font-size: 12px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: var(--champagne-deep);
+      margin-bottom: 1.5rem;
+      display: inline-block;
+    }
+    .display { font-size: clamp(2.5rem, 6vw, 5.5rem); font-weight: 300; }
+    .display em { font-style: italic; font-weight: 400; color: var(--champagne-deep); }
+    .h-large { font-size: clamp(2rem, 4.5vw, 3.75rem); font-weight: 300; }
+    .h-medium { font-size: clamp(1.5rem, 2.5vw, 2.25rem); }
+    .lead {
+      font-family: var(--serif);
+      font-size: clamp(1.15rem, 1.6vw, 1.5rem);
+      font-weight: 300;
+      line-height: 1.5;
+      color: var(--ink-soft);
+      font-style: italic;
+    }
+
+    /* ============================================
+       LAYOUT
+       ============================================ */
+    .container { max-width: var(--container); margin: 0 auto; padding: 0 2rem; }
+    .container-narrow { max-width: var(--container-narrow); margin: 0 auto; padding: 0 2rem; }
+    section { padding: 8rem 0; position: relative; }
+    @media (max-width: 768px) { section { padding: 5rem 0; } .container, .container-narrow { padding: 0 1.25rem; } }
+
+    /* ============================================
+       NAV
+       ============================================ */
+    nav.top {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 1.5rem 2rem;
+      display: flex; justify-content: space-between; align-items: center;
+      transition: all 0.4s ease;
+      background: transparent;
+    }
+    nav.top.scrolled {
+      background: rgba(247, 243, 236, 0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 1rem 2rem;
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-logo {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      color: var(--bg-cream);
+      transition: color 0.4s ease;
+    }
+    nav.top.scrolled .nav-logo { color: var(--ink); }
+    .nav-links {
+      display: flex; gap: 2.5rem; align-items: center;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 13px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: var(--bg-cream);
+      position: relative;
+      transition: color 0.4s ease;
+    }
+    nav.top.scrolled .nav-links a { color: var(--ink); }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -6px; left: 0;
+      width: 0; height: 1px; background: var(--champagne);
+      transition: width 0.3s ease;
+    }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-cta {
+      padding: 0.7rem 1.5rem;
+      border: 1px solid currentColor;
+      border-radius: 100px;
+      font-size: 12px !important;
+    }
+    .nav-cta:hover { background: var(--champagne); border-color: var(--champagne); color: var(--bg-paper) !important; }
+    .nav-cta::after { display: none; }
+    .mobile-toggle { display: none; color: var(--bg-cream); }
+    nav.top.scrolled .mobile-toggle { color: var(--ink); }
+    @media (max-width: 900px) {
+      .nav-links { display: none; flex-direction: column; position: fixed; top: 70px; left: 0; right: 0; background: var(--bg-paper); padding: 2rem; border-bottom: 1px solid var(--line); }
+      .nav-links.open { display: flex; }
+      .nav-links a { color: var(--ink) !important; font-size: 1rem; }
+      .mobile-toggle { display: block; font-size: 1.5rem; }
+    }
+
+    /* ============================================
+       HERO
+       ============================================ */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 700px;
+      overflow: hidden;
+      padding: 0;
+      color: var(--bg-paper);
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background-image: url('images/banner.jpg');
+      background-size: cover;
+      background-position: center;
+      transform: scale(1.05);
+      animation: heroZoom 20s ease-out forwards;
+    }
+    @keyframes heroZoom {
+      from { transform: scale(1.15); }
+      to { transform: scale(1.0); }
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(20,17,15,0.55) 0%, rgba(20,17,15,0.35) 40%, rgba(20,17,15,0.85) 100%);
+    }
+    .hero-content {
+      position: relative;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 max(2rem, 8vw);
+      max-width: 1500px;
+      margin: 0 auto;
+    }
+    .hero-eyebrow {
+      font-family: var(--sans);
+      font-size: 12px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: var(--champagne);
+      margin-bottom: 1.5rem;
+      opacity: 0; animation: fadeUp 1s 0.3s ease forwards;
+    }
+    .hero h1 {
+      font-size: clamp(3rem, 8vw, 7rem);
+      font-weight: 300;
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      color: var(--bg-paper);
+      max-width: 900px;
+      opacity: 0; animation: fadeUp 1.2s 0.5s ease forwards;
+    }
+    .hero h1 em {
+      font-style: italic;
+      font-weight: 400;
+      color: var(--champagne);
+    }
+    .hero-tagline {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: clamp(1.1rem, 1.8vw, 1.5rem);
+      font-weight: 300;
+      color: rgba(252, 250, 245, 0.85);
+      margin-top: 2rem;
+      max-width: 600px;
+      opacity: 0; animation: fadeUp 1s 0.9s ease forwards;
+    }
+    .hero-actions {
+      display: flex; gap: 1.5rem; margin-top: 3rem;
+      flex-wrap: wrap;
+      opacity: 0; animation: fadeUp 1s 1.2s ease forwards;
+    }
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.7rem;
+      padding: 1rem 2rem;
+      font-family: var(--sans);
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 600;
+      border-radius: 100px;
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 1px solid transparent;
+    }
+    .btn-primary {
+      background: var(--champagne);
+      color: var(--bg-paper);
+    }
+    .btn-primary:hover {
+      background: var(--champagne-deep);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(184, 149, 106, 0.35);
+    }
+    .btn-ghost {
+      border-color: rgba(252, 250, 245, 0.4);
+      color: var(--bg-paper);
+    }
+    .btn-ghost:hover {
+      background: var(--bg-paper);
+      color: var(--ink);
+      border-color: var(--bg-paper);
+    }
+    .btn-dark {
+      background: var(--ink);
+      color: var(--bg-paper);
+    }
+    .btn-dark:hover { background: var(--teal); }
+    .btn .arrow { transition: transform 0.3s ease; }
+    .btn:hover .arrow { transform: translateX(4px); }
+
+    .hero-meta {
+      position: absolute;
+      bottom: 3rem;
+      left: max(2rem, 8vw);
+      right: max(2rem, 8vw);
+      display: flex; justify-content: space-between; align-items: flex-end;
+      color: rgba(252, 250, 245, 0.7);
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      opacity: 0; animation: fadeUp 1s 1.5s ease forwards;
+    }
+    .scroll-hint {
+      writing-mode: vertical-rl;
+      font-size: 11px;
+      letter-spacing: 0.3em;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ============================================
+       MANIFESTO / INTRO
+       ============================================ */
+    .manifesto {
+      background: var(--bg-paper);
+      text-align: center;
+      padding: 9rem 0;
+    }
+    .manifesto-quote {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: clamp(1.5rem, 3.2vw, 2.8rem);
+      font-weight: 300;
+      line-height: 1.35;
+      color: var(--ink);
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .manifesto-quote span { color: var(--champagne-deep); }
+    .manifesto-rule {
+      width: 60px; height: 1px;
+      background: var(--champagne);
+      margin: 3rem auto 1.5rem;
+    }
+    .manifesto-attribution {
+      font-size: 12px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--ink-mute);
+      font-weight: 500;
+    }
+
+    /* ============================================
+       ABOUT
+       ============================================ */
+    .about { background: var(--bg-cream); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+    @media (max-width: 900px) {
+      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+    }
+    .about-image {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 4/5;
+      border-radius: 4px;
+    }
+    .about-image img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 1.2s ease;
+    }
+    .about-image:hover img { transform: scale(1.04); }
+    .about-image::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      box-shadow: inset 0 0 80px rgba(20,17,15,0.15);
+      pointer-events: none;
+    }
+    .about-text .display { margin-bottom: 2rem; }
+    .about-text p { color: var(--ink-soft); margin-bottom: 1.5rem; }
+    .about-stats {
+      display: flex; gap: 3rem; margin-top: 3rem; padding-top: 3rem;
+      border-top: 1px solid var(--line);
+    }
+    .stat-num {
+      font-family: var(--serif);
+      font-size: 2.5rem;
+      font-weight: 400;
+      color: var(--champagne-deep);
+      line-height: 1;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .stat-label {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink-mute);
+    }
+
+    /* ============================================
+       SERVICES
+       ============================================ */
+    .services { background: var(--bg-deep); color: var(--bg-paper); }
+    .services h2, .services .eyebrow { color: var(--bg-paper); }
+    .services .eyebrow { color: var(--champagne); }
+    .section-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 5rem;
+    }
+    .section-header .lead { color: rgba(252,250,245,0.7); margin-top: 1.5rem; }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+    @media (max-width: 768px) { .services-grid { grid-template-columns: 1fr; } }
+    .service-card {
+      position: relative;
+      aspect-ratio: 16/10;
+      overflow: hidden;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .service-card img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .service-card:hover img { transform: scale(1.06); }
+    .service-card-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(20,17,15,0.2) 0%, rgba(20,17,15,0.85) 100%);
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      color: var(--bg-paper);
+    }
+    .service-card h3 {
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      color: var(--bg-paper);
+      margin-bottom: 0.75rem;
+    }
+    .service-card p {
+      font-size: 14px;
+      color: rgba(252,250,245,0.8);
+      line-height: 1.5;
+      max-width: 90%;
+    }
+    .service-card-tag {
+      align-self: flex-start;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--champagne);
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+
+    /* ============================================
+       EXPERIENCES 5.0
+       ============================================ */
+    .experiences { background: var(--bg-paper); }
+    .experiences-intro {
+      max-width: 800px;
+      margin: 0 auto 5rem;
+      text-align: center;
+    }
+    .exp-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+    @media (max-width: 900px) { .exp-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px) { .exp-grid { grid-template-columns: 1fr; } }
+    .exp-card {
+      background: var(--bg-cream);
+      padding: 2.5rem;
+      border: 1px solid var(--line);
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .exp-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 2px;
+      background: var(--champagne);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.5s ease;
+    }
+    .exp-card:hover {
+      background: var(--bg-paper);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(20,17,15,0.06);
+    }
+    .exp-card:hover::before { transform: scaleX(1); }
+    .exp-number {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1.25rem;
+      color: var(--champagne-deep);
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+    .exp-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+    }
+    .exp-card p {
+      font-size: 14.5px;
+      color: var(--ink-soft);
+      line-height: 1.6;
+    }
+
+    /* ============================================
+       GALLERY
+       ============================================ */
+    .gallery { background: var(--bg-cream); }
+    .gallery-filters {
+      display: flex; justify-content: center; gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 4rem;
+    }
+    .filter-btn {
+      padding: 0.6rem 1.5rem;
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: var(--ink-soft);
+      border: 1px solid var(--line);
+      border-radius: 100px;
+      transition: all 0.3s ease;
+    }
+    .filter-btn:hover { color: var(--ink); border-color: var(--ink); }
+    .filter-btn.active {
+      background: var(--ink);
+      color: var(--bg-paper);
+      border-color: var(--ink);
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+    @media (max-width: 900px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px) { .gallery-grid { grid-template-columns: 1fr; } }
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+    .gallery-item.hidden { display: none; }
+    .gallery-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .gallery-item:hover img { transform: scale(1.08); }
+    .gallery-item::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, transparent 50%, rgba(20,17,15,0.7) 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .gallery-item:hover::after { opacity: 1; }
+    .gallery-caption {
+      position: absolute;
+      bottom: 1.25rem; left: 1.5rem;
+      color: var(--bg-paper);
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1.1rem;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.4s ease;
+      z-index: 2;
+    }
+    .gallery-item:hover .gallery-caption {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ============================================
+       PACKS
+       ============================================ */
+    .packs { background: var(--bg-paper); }
+    .packs-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-top: 4rem;
+    }
+    @media (max-width: 1000px) { .packs-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px) { .packs-grid { grid-template-columns: 1fr; } }
+    .pack-card {
+      background: var(--bg-cream);
+      padding: 3rem 2rem;
+      border: 1px solid var(--line);
+      position: relative;
+      transition: all 0.4s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .pack-card.featured {
+      background: var(--ink);
+      color: var(--bg-paper);
+      border-color: var(--ink);
+    }
+    .pack-card.featured h3 { color: var(--bg-paper); }
+    .pack-card.featured .pack-includes li { color: rgba(252,250,245,0.8); border-color: rgba(252,250,245,0.15); }
+    .pack-card.featured .pack-target { color: var(--champagne); }
+    .pack-badge {
+      position: absolute;
+      top: -12px; left: 50%;
+      transform: translateX(-50%);
+      background: var(--champagne);
+      color: var(--bg-paper);
+      padding: 0.4rem 1.2rem;
+      border-radius: 100px;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    .pack-card:hover { transform: translateY(-6px); }
+    .pack-target {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--champagne-deep);
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+    .pack-card h3 {
+      font-size: 1.75rem;
+      margin-bottom: 1.5rem;
+    }
+    .pack-includes {
+      list-style: none;
+      flex: 1;
+      margin-bottom: 2rem;
+    }
+    .pack-includes li {
+      font-size: 14px;
+      padding: 0.8rem 0;
+      border-bottom: 1px solid var(--line);
+      color: var(--ink-soft);
+      line-height: 1.5;
+    }
+    .pack-cta {
+      padding: 0.9rem 1.5rem;
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 600;
+      border: 1px solid var(--ink);
+      color: var(--ink);
+      text-align: center;
+      border-radius: 100px;
+      transition: all 0.3s ease;
+    }
+    .pack-card.featured .pack-cta {
+      border-color: var(--champagne);
+      color: var(--champagne);
+    }
+    .pack-cta:hover {
+      background: var(--ink);
+      color: var(--bg-paper);
+    }
+    .pack-card.featured .pack-cta:hover {
+      background: var(--champagne);
+      color: var(--bg-paper);
+    }
+
+    /* ============================================
+       PROCESS
+       ============================================ */
+    .process { background: var(--bg-deep); color: var(--bg-paper); }
+    .process h2, .process .eyebrow, .process .lead { color: var(--bg-paper); }
+    .process .eyebrow { color: var(--champagne); }
+    .process .lead { color: rgba(252,250,245,0.7); }
+    .timeline {
+      max-width: 800px;
+      margin: 5rem auto 0;
+      position: relative;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 30px; top: 20px; bottom: 20px;
+      width: 1px;
+      background: rgba(252,250,245,0.15);
+    }
+    .step {
+      position: relative;
+      padding-left: 5rem;
+      padding-bottom: 3rem;
+    }
+    .step:last-child { padding-bottom: 0; }
+    .step-number {
+      position: absolute;
+      left: 0; top: -5px;
+      width: 60px; height: 60px;
+      border-radius: 50%;
+      background: var(--bg-deep);
+      border: 1px solid var(--champagne);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
+      font-style: italic;
+      color: var(--champagne);
+      font-size: 1.25rem;
+    }
+    .step h3 {
+      color: var(--bg-paper);
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .step p {
+      color: rgba(252,250,245,0.6);
+      font-size: 15px;
+    }
+
+    /* ============================================
+       CTA / CONTACT
+       ============================================ */
+    .cta {
+      background: var(--bg-cream);
+      text-align: center;
+      padding: 9rem 0;
+    }
+    .cta h2 {
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+    }
+    .cta h2 em {
+      font-style: italic;
+      color: var(--champagne-deep);
+    }
+    .cta-lead {
+      max-width: 600px;
+      margin: 0 auto 3rem;
+      color: var(--ink-soft);
+    }
+    .cta-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      max-width: 900px;
+      margin: 4rem auto 0;
+    }
+    @media (max-width: 700px) { .cta-grid { grid-template-columns: 1fr; } }
+    .cta-method {
+      padding: 2.5rem 2rem;
+      background: var(--bg-paper);
+      border: 1px solid var(--line);
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+    .cta-method:hover {
+      border-color: var(--champagne);
+      transform: translateY(-4px);
+    }
+    .cta-method-label {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink-mute);
+      margin-bottom: 0.75rem;
+    }
+    .cta-method-value {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      color: var(--ink);
+      word-break: break-word;
+    }
+
+    /* ============================================
+       FOOTER
+       ============================================ */
+    footer {
+      background: var(--bg-deep);
+      color: rgba(252,250,245,0.5);
+      padding: 4rem 0 2rem;
+      font-size: 13px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+    @media (max-width: 700px) {
+      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+    }
+    .footer-brand {
+      font-family: var(--serif);
+      font-size: 2rem;
+      color: var(--bg-paper);
+      margin-bottom: 1rem;
+      letter-spacing: 0.05em;
+    }
+    .footer-tag {
+      font-style: italic;
+      font-family: var(--serif);
+      max-width: 350px;
+    }
+    .footer h4 {
+      color: var(--champagne);
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+      font-weight: 600;
+    }
+    footer a { color: rgba(252,250,245,0.7); }
+    footer a:hover { color: var(--champagne); }
+    .footer-bottom {
+      border-top: 1px solid rgba(252,250,245,0.1);
+      padding-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 12px;
+      letter-spacing: 0.05em;
+    }
+
+    /* ============================================
+       LIGHTBOX
+       ============================================ */
+    .lightbox {
+      position: fixed; inset: 0;
+      background: rgba(20,17,15,0.95);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img {
+      max-width: 90vw;
+      max-height: 90vh;
+      object-fit: contain;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 2rem; right: 2rem;
+      color: var(--bg-paper);
+      font-size: 2rem;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+    }
+
+    /* ============================================
+       WHATSAPP FLOATING
+       ============================================ */
+    .wa-float {
+      position: fixed;
+      bottom: 2rem; right: 2rem;
+      width: 60px; height: 60px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+      z-index: 50;
+      transition: transform 0.3s ease;
+    }
+    .wa-float:hover { transform: scale(1.1); }
+    .wa-float svg { width: 32px; height: 32px; fill: white; }
+
+    /* ============================================
+       REVEAL ANIMATIONS
+       ============================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ============================================
+       UTILITIES
+       ============================================ */
+    .text-center { text-align: center; }
+    .mt-2 { margin-top: 2rem; }
+    .mt-4 { margin-top: 4rem; }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================
+       NAVIGATION
+       ============================================ -->
+  <nav class="top" id="topNav">
+    <a href="#top" class="nav-logo">BANDARRA</a>
+    <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#experiencias">Experiência 5.0</a></li>
+      <li><a href="#galeria">Galeria</a></li>
+      <li><a href="#packs">Packs</a></li>
+      <li><a href="#contacto" class="nav-cta">Reservar</a></li>
+    </ul>
+  </nav>
+
+  <!-- ============================================
+       HERO
+       ============================================ -->
+  <section class="hero" id="top">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="hero-eyebrow">Bandarra Entertainment · Desde 2006</span>
+      <h1>Eventos que se <em>recordam</em><br />muito depois da última música.</h1>
+      <p class="hero-tagline">
+        Experiência humana, tecnologia inteligente e pista cheia até ao fim. Casamentos, eventos corporativos e momentos privados desenhados como cenas de espetáculo.
+      </p>
+      <div class="hero-actions">
+        <a href="#contacto" class="btn btn-primary">Reservar consulta <span class="arrow">→</span></a>
+        <a href="#servicos" class="btn btn-ghost">Conhecer serviços</a>
+      </div>
+    </div>
+    <div class="hero-meta">
+      <span>Covilhã · Portugal</span>
+      <span class="scroll-hint">Scroll ↓</span>
+      <span>+19 anos · 500+ eventos</span>
+    </div>
+  </section>
+
+  <!-- ============================================
+       MANIFESTO
+       ============================================ -->
+  <section class="manifesto">
+    <div class="container-narrow">
+      <p class="manifesto-quote reveal">
+        Não fazemos apenas música. <span>Desenhamos a energia do evento.</span> Criamos entradas com impacto, momentos de emoção e uma pista preparada para durar até ao fim.
+      </p>
+      <div class="manifesto-rule reveal"></div>
+      <p class="manifesto-attribution reveal">— Filosofia Bandarra 5.0</p>
+    </div>
+  </section>
+
+  <!-- ============================================
+       ABOUT
+       ============================================ -->
+  <section class="about" id="sobre">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-image reveal">
+          <img src="images/portrait-clean.png" alt="DJ Bandarra — retrato editorial" />
+        </div>
+        <div class="about-text reveal">
+          <span class="eyebrow">Sobre</span>
+          <h2 class="display">O <em>artesão</em> da pista cheia.</h2>
+          <p>
+            Bandarra Entertainment é uma assinatura de DJ, animador e produtor musical formada em quase duas décadas de pista. Cada evento é tratado como uma obra única, com curadoria sonora desenhada à medida do casal, da equipa ou do anfitrião.
+          </p>
+          <p>
+            A diferença não está apenas no equipamento Pioneer profissional, no estúdio próprio de produção ou no domínio de salas que vão de paços palacianos a praias ao pôr-do-sol — está na <em>leitura da sala em tempo real</em> e na capacidade de transformar momentos em memória coletiva.
+          </p>
+          <div class="about-stats">
+            <div>
+              <span class="stat-num">19+</span>
+              <span class="stat-label">Anos de experiência</span>
+            </div>
+            <div>
+              <span class="stat-num">500+</span>
+              <span class="stat-label">Eventos realizados</span>
+            </div>
+            <div>
+              <span class="stat-num">5.0</span>
+              <span class="stat-label">Metodologia exclusiva</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       SERVICES
+       ============================================ -->
+  <section class="services" id="servicos">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">Serviços</span>
+        <h2 class="display">Cada evento, <em>uma assinatura.</em></h2>
+        <p class="lead">Quatro universos, uma só exigência: a memória que fica.</p>
+      </div>
+
+      <div class="services-grid">
+        <a href="#packs" class="service-card reveal">
+          <img src="images/wedding-opening.png" alt="Casamentos" />
+          <div class="service-card-overlay">
+            <span class="service-card-tag">01 · Casamentos</span>
+            <h3>O dia mais importante,<br />a banda sonora certa.</h3>
+            <p>Da cerimónia ao after, com momentos coreografados, jogos para convidados e leitura de pista profissional.</p>
+          </div>
+        </a>
+
+        <a href="#packs" class="service-card reveal">
+          <img src="images/event-festival.png" alt="Eventos Corporativos" />
+          <div class="service-card-overlay">
+            <span class="service-card-tag">02 · Corporativo</span>
+            <h3>Energia de marca,<br />ativação medível.</h3>
+            <p>Jantares de equipa, congressos, ativações de marca e galas — com guião de palco e quiz personalizado.</p>
+          </div>
+        </a>
+
+        <a href="#packs" class="service-card reveal">
+          <img src="images/event-kids.png" alt="Batizados & Festas Infantis" />
+          <div class="service-card-overlay">
+            <span class="service-card-tag">03 · Batizados & Kids</span>
+            <h3>Festa para crianças,<br />sossego para adultos.</h3>
+            <p>Animação musical infantil com mini-disco, desafios coreografados e adereços — sem retirar centralidade ao evento.</p>
+          </div>
+        </a>
+
+        <a href="#packs" class="service-card reveal">
+          <img src="images/event-convento.png" alt="Eventos Privados" />
+          <div class="service-card-overlay">
+            <span class="service-card-tag">04 · Privados & Especiais</span>
+            <h3>Aniversários e ocasiões<br />que merecem destaque.</h3>
+            <p>Festas temáticas (anos 80/90, latina, portuguesa, festival) com adereços, iluminação e bloco coreografado.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       EXPERIENCES 5.0
+       ============================================ -->
+  <section class="experiences" id="experiencias">
+    <div class="container">
+      <div class="section-header experiences-intro reveal">
+        <span class="eyebrow">Metodologia 5.0</span>
+        <h2 class="display">Quando a <em>tecnologia</em> serve a emoção.</h2>
+        <p class="lead">
+          Seis ferramentas exclusivas que aproximam as pessoas em vez de as afastarem do momento.
+        </p>
+      </div>
+
+      <div class="exp-grid">
+        <div class="exp-card reveal">
+          <span class="exp-number">i.</span>
+          <h3>Música personalizada</h3>
+          <p>Criação de até duas faixas originais com nomes, história e energia do evento. Usadas na entrada, bolo, abertura de pista ou vídeo final.</p>
+        </div>
+        <div class="exp-card reveal">
+          <span class="exp-number">ii.</span>
+          <h3>QR Discos Pedidos</h3>
+          <p>Convidados sugerem músicas por QR code; o DJ filtra, organiza e integra no momento certo, sem quebrar a energia da pista.</p>
+        </div>
+        <div class="exp-card reveal">
+          <span class="exp-number">iii.</span>
+          <h3>Quiz interativo</h3>
+          <p>Perguntas personalizadas sobre noivos, empresa ou equipa, em formato de competição por mesas, grupos ou departamentos.</p>
+        </div>
+        <div class="exp-card reveal">
+          <span class="exp-number">iv.</span>
+          <h3>Modo Festival</h3>
+          <p>Abertura de pista com contagem regressiva, voz-off, drop, pulseiras glow e sequência de alto impacto cinematográfico.</p>
+        </div>
+        <div class="exp-card reveal">
+          <span class="exp-number">v.</span>
+          <h3>Bloco Portugalidade</h3>
+          <p>Bailarico, música popular, clássicos portugueses e chamada coletiva para todas as gerações da sala.</p>
+        </div>
+        <div class="exp-card reveal">
+          <span class="exp-number">vi.</span>
+          <h3>MC & Mestre de Cerimónia</h3>
+          <p>Voz que cria energia nos momentos certos, encaminha convidados e desbloqueia a interação coletiva da sala.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       GALLERY
+       ============================================ -->
+  <section class="gallery" id="galeria">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">Portfolio</span>
+        <h2 class="display">Momentos <em>reais.</em></h2>
+        <p class="lead">Uma seleção do trabalho que pode esperar.</p>
+      </div>
+
+      <div class="gallery-filters reveal">
+        <button class="filter-btn active" data-filter="all">Todos</button>
+        <button class="filter-btn" data-filter="weddings">Casamentos</button>
+        <button class="filter-btn" data-filter="themed">Temáticos</button>
+        <button class="filter-btn" data-filter="venues">Cenários</button>
+        <button class="filter-btn" data-filter="entertainment">Animação</button>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-item" data-category="weddings">
+          <img src="images/wedding-opening.png" alt="Abertura do baile de casamento" />
+          <span class="gallery-caption">Abertura de baile</span>
+        </div>
+        <div class="gallery-item" data-category="weddings">
+          <img src="images/wedding-cocktail.png" alt="Cocktail de casamento ao pôr-do-sol" />
+          <span class="gallery-caption">Cocktail ao pôr-do-sol</span>
+        </div>
+        <div class="gallery-item" data-category="weddings">
+          <img src="images/wedding-chic.png" alt="Sala de casamento clássica" />
+          <span class="gallery-caption">Sala palaciana</span>
+        </div>
+        <div class="gallery-item" data-category="weddings">
+          <img src="images/wedding-shoe-game.png" alt="Jogo do sapato no casamento" />
+          <span class="gallery-caption">Jogo do sapato</span>
+        </div>
+        <div class="gallery-item" data-category="weddings">
+          <img src="images/wedding-tiktok.png" alt="Coreografia TikTok no casamento" />
+          <span class="gallery-caption">Coreografia viral</span>
+        </div>
+
+        <div class="gallery-item" data-category="themed">
+          <img src="images/themed-80s.png" alt="Festa anos 80" />
+          <span class="gallery-caption">Bloco anos 80</span>
+        </div>
+        <div class="gallery-item" data-category="themed">
+          <img src="images/themed-90s.png" alt="Festa anos 90" />
+          <span class="gallery-caption">Bloco anos 90</span>
+        </div>
+        <div class="gallery-item" data-category="themed">
+          <img src="images/themed-latina.png" alt="Festa Latina e Havaiana" />
+          <span class="gallery-caption">Festa havaiana &amp; latina</span>
+        </div>
+        <div class="gallery-item" data-category="themed">
+          <img src="images/themed-portuguese.png" alt="Arraial Português Chique" />
+          <span class="gallery-caption">Arraial chique</span>
+        </div>
+
+        <div class="gallery-item" data-category="venues">
+          <img src="images/event-beach.png" alt="Beach Party" />
+          <span class="gallery-caption">Beach party</span>
+        </div>
+        <div class="gallery-item" data-category="venues">
+          <img src="images/event-sunset.png" alt="Sunset Party" />
+          <span class="gallery-caption">Sunset session</span>
+        </div>
+        <div class="gallery-item" data-category="venues">
+          <img src="images/event-convento.png" alt="Convento Party — sala histórica" />
+          <span class="gallery-caption">Convento histórico</span>
+        </div>
+        <div class="gallery-item" data-category="venues">
+          <img src="images/event-festival.png" alt="Palco de festival" />
+          <span class="gallery-caption">Palco de festival</span>
+        </div>
+        <div class="gallery-item" data-category="venues">
+          <img src="images/event-kids.png" alt="Festa infantil — Kids Party" />
+          <span class="gallery-caption">Kids party</span>
+        </div>
+
+        <div class="gallery-item" data-category="entertainment">
+          <img src="images/entertainment-karaoke.png" alt="Batalha de karaoke em grupo" />
+          <span class="gallery-caption">Batalha de karaoke</span>
+        </div>
+        <div class="gallery-item" data-category="entertainment">
+          <img src="images/entertainment-quiz.png" alt="Quiz interativo" />
+          <span class="gallery-caption">Quiz personalizado</span>
+        </div>
+        <div class="gallery-item" data-category="entertainment">
+          <img src="images/entertainment-limbo.png" alt="Limbo dance" />
+          <span class="gallery-caption">Limbo dance</span>
+        </div>
+        <div class="gallery-item" data-category="entertainment">
+          <img src="images/entertainment-chair.png" alt="Jogo da cadeira" />
+          <span class="gallery-caption">Jogo da cadeira</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       PACKS
+       ============================================ -->
+  <section class="packs" id="packs">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">Investimento</span>
+        <h2 class="display">Quatro <em>packs.</em><br />Uma exigência.</h2>
+        <p class="lead">Soluções modulares, orçamentadas após validação de data, local e duração.</p>
+      </div>
+
+      <div class="packs-grid">
+        <div class="pack-card reveal">
+          <span class="pack-target">Batizados · Aniversários</span>
+          <h3>Essencial</h3>
+          <ul class="pack-includes">
+            <li>DJ profissional</li>
+            <li>Sistema de som dedicado</li>
+            <li>Microfone para intervenções</li>
+            <li>Música ambiente curada</li>
+            <li>Coordenação base</li>
+          </ul>
+          <a href="#contacto" class="pack-cta">Solicitar orçamento</a>
+        </div>
+
+        <div class="pack-card reveal">
+          <span class="pack-target">Casamentos completos</span>
+          <h3>Signature</h3>
+          <ul class="pack-includes">
+            <li>Cerimónia &amp; cocktail</li>
+            <li>Abertura de pista coreografada</li>
+            <li>Blocos temáticos</li>
+            <li>Discos pedidos com curadoria</li>
+            <li>Festa final &amp; encerramento</li>
+          </ul>
+          <a href="#contacto" class="pack-cta">Solicitar orçamento</a>
+        </div>
+
+        <div class="pack-card featured reveal">
+          <span class="pack-badge">Mais escolhido</span>
+          <span class="pack-target">Experiência diferenciadora</span>
+          <h3>Experience 5.0</h3>
+          <ul class="pack-includes">
+            <li>Tudo o que inclui Signature</li>
+            <li>Briefing digital personalizado</li>
+            <li>QR de pedidos &amp; quiz interativo</li>
+            <li>Música original criada para o evento</li>
+            <li>Projeção fotos/vídeos &amp; relatório pós-evento</li>
+          </ul>
+          <a href="#contacto" class="pack-cta">Solicitar orçamento</a>
+        </div>
+
+        <div class="pack-card reveal">
+          <span class="pack-target">Empresas &amp; marcas</span>
+          <h3>Corporate &amp; Brand</h3>
+          <ul class="pack-includes">
+            <li>DJ/host com guião de palco</li>
+            <li>Quiz corporativo &amp; energizers</li>
+            <li>Música de marca</li>
+            <li>Captação de testemunhos</li>
+            <li>Relatório de satisfação</li>
+          </ul>
+          <a href="#contacto" class="pack-cta">Solicitar orçamento</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       PROCESS
+       ============================================ -->
+  <section class="process">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">Processo</span>
+        <h2 class="display">De <em>nada</em> a <em>memorável.</em></h2>
+        <p class="lead">Sete passos. Zero surpresas. Tudo o que importa.</p>
+      </div>
+
+      <div class="timeline">
+        <div class="step reveal">
+          <div class="step-number">i.</div>
+          <h3>Contacto inicial</h3>
+          <p>Telefonema ou email para um pré-diagnóstico rápido do evento.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step-number">ii.</div>
+          <h3>Reunião de descoberta</h3>
+          <p>Conhecemos estilo, público, momentos críticos e restrições do espaço.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step-number">iii.</div>
+          <h3>Proposta modular</h3>
+          <p>Envio de proposta ajustada com pack, módulos opcionais e orçamento.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step-number">iv.</div>
+          <h3>Recolha digital</h3>
+          <p>Músicas especiais, pedidos, fotografias, nomes e preferências dos convidados.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step-number">v.</div>
+          <h3>Desenho do guião</h3>
+          <p>Guião musical e mapa dos momentos de animação, validado consigo.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step-number">vi.</div>
+          <h3>Execução no evento</h3>
+          <p>Com leitura de pista, adaptação em tempo real e plano B sempre pronto.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step-number">vii.</div>
+          <h3>Feedback pós-evento</h3>
+          <p>Recolha de testemunho, sugestões e melhoria contínua para clientes recorrentes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       CTA / CONTACT
+       ============================================ -->
+  <section class="cta" id="contacto">
+    <div class="container-narrow">
+      <span class="eyebrow reveal">Vamos conversar</span>
+      <h2 class="reveal">Reserve a sua <em>data.</em></h2>
+      <p class="lead cta-lead reveal">
+        Datas premium esgotam com 6 a 12 meses de antecedência. Um telefonema breve resolve as dúvidas iniciais e protege a sua data.
+      </p>
+
+      <div class="cta-grid">
+        <a href="tel:+351969180049" class="cta-method reveal">
+          <div class="cta-method-label">Telefone</div>
+          <div class="cta-method-value">969 180 049</div>
+        </a>
+        <a href="mailto:antonio.bandarra@gmail.com" class="cta-method reveal">
+          <div class="cta-method-label">Email</div>
+          <div class="cta-method-value">antonio.bandarra<br>@gmail.com</div>
+        </a>
+        <a href="https://wa.me/351969180049?text=Ol%C3%A1%20Bandarra%2C%20gostaria%20de%20pedir%20um%20or%C3%A7amento" target="_blank" rel="noopener" class="cta-method reveal">
+          <div class="cta-method-label">WhatsApp</div>
+          <div class="cta-method-value">Mensagem direta</div>
+        </a>
+      </div>
+
+      <div class="mt-4 reveal">
+        <a href="https://wa.me/351969180049?text=Ol%C3%A1%20Bandarra%2C%20gostaria%20de%20pedir%20um%20or%C3%A7amento" target="_blank" rel="noopener" class="btn btn-dark">
+          Pedir orçamento agora <span class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       FOOTER
+       ============================================ -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">BANDARRA</div>
+          <p class="footer-tag">Experiência humana, tecnologia inteligente e pista cheia até ao fim. Eventos premium desde 2006.</p>
+        </div>
+        <div>
+          <h4>Navegação</h4>
+          <ul style="list-style:none; display:flex; flex-direction:column; gap:0.6rem;">
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#servicos">Serviços</a></li>
+            <li><a href="#experiencias">Experiência 5.0</a></li>
+            <li><a href="#galeria">Galeria</a></li>
+            <li><a href="#packs">Packs</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contactos</h4>
+          <ul style="list-style:none; display:flex; flex-direction:column; gap:0.6rem;">
+            <li><a href="tel:+351969180049">969 180 049</a></li>
+            <li><a href="mailto:antonio.bandarra@gmail.com">antonio.bandarra@gmail.com</a></li>
+            <li><a href="https://www.casamentos.pt/musica-casamento/dj-bandarra--e114168" target="_blank" rel="noopener">Casamentos.pt</a></li>
+            <li>Covilhã · Portugal</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Bandarra Entertainment. Todos os direitos reservados.</span>
+        <span>Versão 5.0 · 2026/2027</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/351969180049?text=Ol%C3%A1%20Bandarra%2C%20gostaria%20de%20pedir%20um%20or%C3%A7amento" target="_blank" rel="noopener" class="wa-float" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm0 18.15h-.01c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.264 8.264 0 01-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.82 2.42a8.183 8.183 0 012.41 5.83c.02 4.54-3.68 8.23-8.21 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.37-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43-.14-.01-.31-.01-.48-.01-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07s.89 2.4 1.01 2.56c.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.11-.21-.16-.46-.27z"/></svg>
+  </a>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close" id="lightboxClose">✕</span>
+    <img id="lightboxImg" src="" alt="" />
+  </div>
+
+  <script>
+    // ============================================
+    // NAVIGATION
+    // ============================================
+    const nav = document.getElementById('topNav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) nav.classList.add('scrolled');
+      else nav.classList.remove('scrolled');
+    });
+
+    // Mobile toggle
+    document.getElementById('mobileToggle').addEventListener('click', () => {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+
+    // Close mobile menu on link click
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('navLinks').classList.remove('open');
+      });
+    });
+
+    // ============================================
+    // GALLERY FILTERS
+    // ============================================
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.dataset.filter;
+        galleryItems.forEach(item => {
+          if (filter === 'all' || item.dataset.category === filter) {
+            item.classList.remove('hidden');
+          } else {
+            item.classList.add('hidden');
+          }
+        });
+      });
+    });
+
+    // ============================================
+    // LIGHTBOX
+    // ============================================
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxClose = document.getElementById('lightboxClose');
+
+    galleryItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const img = item.querySelector('img');
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightbox.classList.add('open');
+      });
+    });
+
+    lightboxClose.addEventListener('click', () => lightbox.classList.remove('open'));
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) lightbox.classList.remove('open');
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') lightbox.classList.remove('open');
+    });
+
+    // ============================================
+    // SCROLL REVEAL
+    // ============================================
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
